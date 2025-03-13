@@ -7,6 +7,18 @@ const UserSchema = new mongoose.Schema({
         max:20,
         unique:true
     },
+    firstName:{
+        type:String,
+        require:true,
+        min:1,
+        max:20
+    },
+    lastName:{
+        type:String,
+        require:true,
+        min:1,
+        max:20
+    },
     email:{
         type:String,
         require:true,
@@ -58,4 +70,8 @@ const UserSchema = new mongoose.Schema({
 {timestamps:true}
 );
 
-module.exports = mongoose.model("User" , UserSchema);
+const userMode = mongoose.model("User" , UserSchema);
+
+module.exports = {
+    userMode
+}
