@@ -1,77 +1,74 @@
 const mongoose = require("mongoose");
+
 const UserSchema = new mongoose.Schema({
-    userName:{
-        type:String,
-        require:true,
-        min:4,
-        max:20,
-        unique:true
+    userName: {
+        type: String,
+        required: true,
+        min: 4,
+        max: 20,
+        unique: true
     },
-    firstName:{
-        type:String,
-        require:true,
-        min:1,
-        max:20
+    email: {
+        type: String,
+        required: true,
+        max: 60,
+        unique: true
     },
-    lastName:{
-        type:String,
-        require:true,
-        min:1,
-        max:20
+    password: {
+        type: String,
+        required: true,
+        min: 6
     },
-    email:{
-        type:String,
-        require:true,
-        max:60,
-        unique:true
+    firstName: {
+        type: String,
+        required: true,
+        min: 1,
+        max: 20
     },
-    password:{
-        type:String,
-        require:true,
-        min:6
+    lastName: {
+        type: String,
+        required: true,
+        min: 1,
+        max: 20
     },
-    profilePicture:{
-        type:String,
-        default:""
+    profilePicture: {
+        type: String,
+        default: ""
     },
-    coverPicture:{
-        type:String,
-        default:""
+    coverPicture: {
+        type: String,
+        default: ""
     },
-    followers:{
-        type:Array,
-        default:[]
+    followers: {
+        type: Array,
+        default: []
     },
-    following:{
-        type:Array,
-        default:[]
+    following: {
+        type: Array,
+        default: []
     },
-    isAdmin:{
-        type:Boolean,
-        default:false
+    isAdmin: {
+        type: Boolean,
+        default: false
     },
-    desc:{
-        type:String,
-        max:150
+    desc: {
+        type: String,
+        max: 150
     },
-    city:{
-        type:String,
-        max:50
+    city: {
+        type: String,
+        max: 50
     },
-    from:{
-        type:String,
-        max:50
+    from: {
+        type: String,
+        max: 50
     },
-    relationship:{
-        type:Number,
-        enum:[1,2,3]
+    relationship: {
+        type: Number,
+        enum: [1, 2, 3]
     }
-},
-{timestamps:true}
-);
+}, { timestamps: true });
 
-const userMode = mongoose.model("User" , UserSchema);
+const userModel = mongoose.model("User", UserSchema);
 
-module.exports = {
-    userMode
-}
+module.exports = userModel;

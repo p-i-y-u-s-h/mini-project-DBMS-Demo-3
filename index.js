@@ -11,6 +11,11 @@ mongoose.connect(process.env.MONGO_URL)
     .catch(err => console.error("MONGO CONNECTION ERROR:", err));
 
 app.use(express.json());
-app.use("/api/user",userRouter);
+app.use("/api/v1/user",userRouter);
 
-app.listen(3000);
+async function main(){
+    app.listen(3000)
+    console.log("hey")
+}
+
+main();
